@@ -14,7 +14,8 @@ An AI-powered tool that simplifies stock research by answering natural language 
 
 ## Demo
 
-![Demo Screenshot](docs/demo.png) <!-- Add a screenshot in docs/demo.png if available -->
+![Demo Screenshot](![image](https://github.com/user-attachments/assets/0a072a84-2f0c-47fe-809d-43d3d52d82bb)
+) 
 
 ---
 
