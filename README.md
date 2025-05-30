@@ -112,4 +112,4 @@ This tool is for informational purposes only and does not constitute financial a
 
 ---
 
-Feel free to copy and further tailor this README to your project’s specifics! Let me know if you want help filling in any placeholders or adding more technical details.
+
