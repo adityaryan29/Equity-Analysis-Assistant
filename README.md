@@ -12,10 +12,7 @@ An AI-powered tool that simplifies stock research by answering natural language 
 - **Interactive Notebooks:** Leverage Jupyter Notebooks for exploration and visualization.
 - **User-Friendly Interface:** Minimal setup, easy to use for both beginners and experts.
 
-## Demo
-
-![Demo Screenshot](![image](https://github.com/user-attachments/assets/0a072a84-2f0c-47fe-809d-43d3d52d82bb)
-) 
+ 
 
 ---
 
