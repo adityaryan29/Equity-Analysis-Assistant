@@ -6,9 +6,9 @@ import langchain
 from langchain_groq import ChatGroq
 from langchain.chains import RetrievalQAWithSourcesChain
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.document_loaders import UnstructuredURLLoader
-from langchain.embeddings import HuggingFaceEmbeddings
-from langchain.vectorstores import FAISS
+from langchain_community.document_loaders import UnstructuredURLLoader
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.vectorstores import FAISS
 
 from dotenv import load_dotenv
 
@@ -39,7 +39,7 @@ if process_url_clicked:
     data=loader.load()
     #split data
     text_splitter=RecursiveCharacterTextSplitter(separators=['\n\n','\n','.',','],
-                                                 chunk_size=1000)
+                                                 chunk_size=500)
     docs=text_splitter.split_documents(data)
     #create embeddings and saving it to FAISS index
     embeddings=HuggingFaceEmbeddings()
