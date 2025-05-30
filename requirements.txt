@@ -8,3 +8,4 @@ python-magic
 sentence-transformers
 faiss-cpu
 huggingface-hub
+langchain-community
