@@ -104,7 +104,7 @@ Contributions are welcome! Please open issues or submit pull requests.
 ## Contact
 
 - **Author:** [adityaryan29](https://github.com/adityaryan29)
-- **Email:** [your.email@example.com] <!-- Replace with your contact info -->
+- **Email:** [adityaryan2989@gmail.com] 
 
 ---
 
