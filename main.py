@@ -35,7 +35,7 @@ llm = ChatGroq(
 if process_url_clicked:
     #load data
     loader=UnstructuredURLLoader(urls=urls)
-    main_placefolder.text("Data Loading...Started...✅✅✅")
+    main_placefolder.text("Command Center: Data Inbound...✅✅✅")
     data=loader.load()
     #split data
     text_splitter=RecursiveCharacterTextSplitter(separators=['\n\n','\n','.',','],
