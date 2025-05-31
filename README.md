@@ -4,6 +4,10 @@ An AI-powered tool that simplifies stock research by answering natural language 
 
 ---
 
+## Live Demo
+
+Check out the deployed app here: [StockIntel Assistant](https://equity-analysis-assistant.streamlit.app/)
+
 ## Features
 
 - **Natural Language Query:** Ask questions about stocks and markets in plain English.
