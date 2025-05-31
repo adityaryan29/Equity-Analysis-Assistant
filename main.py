@@ -16,7 +16,7 @@ from dotenv import load_dotenv
 
 load_dotenv() #takes environment variable from .env.
 
-st.title("News Research Tool📈")
+st.title("StockIntel Assistant📈")
 
 st.sidebar.title("News Article URLs")
 
