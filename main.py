@@ -17,7 +17,7 @@ load_dotenv()
 st.set_page_config(page_title="Equity Analysis Assistant", layout="wide", page_icon="📈")
 
 # Logo
-st.image("logo.png", width=100)
+# st.image("logo.png", width=100)
 st.title("📈 StockIntel Assistant")
 st.caption("_(Equity Analysis Assistant powered by real-time GenAI insights)_")
 
