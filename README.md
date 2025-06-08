@@ -12,11 +12,11 @@ Check out the deployed app here: [StockIntel Assistant](https://equity-analysis-
 
 - **Natural Language Query:** Ask questions about stocks and markets in plain English.
 - **Multi-Source Data:** Aggregates and analyzes data from news articles, financial reports, and APIs.
+- **PDF Upload & Analysis:** Upload offline financial reports in PDF format. The system process and analyze PDFs, allowing users to query their contents.
+- **Persistent Q&A History:** Each session now tracks your queries and responses, so you can review and revisit previous interactions.
 - **AI-Powered Insights:** Delivers summarized, actionable insights for equities.
 - **Interactive Notebooks:** Leverage Jupyter Notebooks for exploration and visualization.
 - **User-Friendly Interface:** Minimal setup, easy to use for both beginners and experts.
-
- 
 
 ---
 
@@ -31,24 +31,24 @@ Check out the deployed app here: [StockIntel Assistant](https://equity-analysis-
 ### Installation
 
 1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/adityaryan29/Equity-Analysis-Assistant.git
-   cd Equity-Analysis-Assistant
-   ```
+    ```bash
+    git clone https://github.com/adityaryan29/Equity-Analysis-Assistant.git
+    cd Equity-Analysis-Assistant
+    ```
 
 2. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 3. **(Optional) Set up API keys:**
-   - If using premium financial data sources, set your API keys in a `.env` file.
+    - If using premium financial data sources, set your API keys in a `.env` file.
 
 4. **Launch Jupyter Notebook:**
-   ```bash
-   jupyter notebook
-   ```
-   - Open and run the provided notebooks.
+    ```bash
+    jupyter notebook
+    ```
+    - Open and run the provided notebooks.
 
 ---
 
@@ -56,8 +56,10 @@ Check out the deployed app here: [StockIntel Assistant](https://equity-analysis-
 
 1. **Open a notebook** (e.g., `Equity_Analysis_Assistant.ipynb`).
 2. **Enter your query** in the designated cell (e.g., "Show me the latest news and trends for Apple stock").
-3. **Run cells** to receive AI-powered analysis and visualizations.
-4. **Explore** further insights or modify queries for deeper research.
+3. **Upload a PDF** in the interface to analyze offline financial reports.
+4. **Review session history** to revisit previous questions and answers.
+5. **Run cells** to receive AI-powered analysis and visualizations.
+6. **Explore** further insights or modify queries for deeper research.
 
 ---
 
@@ -67,6 +69,8 @@ Check out the deployed app here: [StockIntel Assistant](https://equity-analysis-
 - “Summarize Apple’s Q1 earnings call highlights.”
 - “Compare Microsoft and Google stock performance over the last year.”
 - “Show the top 5 companies by revenue growth in the tech sector.”
+- “Analyze the uploaded PDF for key financial metrics.”
+- “What were my last three questions and the answers?”
 
 ---
 
@@ -106,7 +110,7 @@ Contributions are welcome! Please open issues or submit pull requests.
 ## Contact
 
 - **Author:** [adityaryan29](https://github.com/adityaryan29)
-- **Email:** [adityaryan2989@gmail.com] 
+- **Email:** adityaryan2989@gmail.com
 
 ---
 
