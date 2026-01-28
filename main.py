@@ -4,7 +4,7 @@ import pickle
 import time
 import langchain
 from langchain_groq import ChatGroq
-from langchain.chains import RetrievalQA
+from langchain.chains.retrieval_qa.base import RetrievalQA
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import UnstructuredURLLoader
 from langchain_community.embeddings import HuggingFaceEmbeddings
@@ -71,6 +71,7 @@ if query:
         st.subheader("Sources:")
         for doc in result["source_documents"]:
             st.write(doc.metadata.get("source", "Unknown"))
+
 
 
 
