@@ -49,30 +49,28 @@ if process_url_clicked:
         pickle.dump(vectorstore, f)
 
 
-query=main_placefolder.text_input("Question: ")
+query = main_placefolder.text_input("Question: ")
+
 if query:
     if os.path.exists(file_path):
         with open(file_path, "rb") as f:
-            vectorstore=pickle.load(f)
-            qa = RetrievalQA.from_chain_type(
-    llm=llm,
-    chain_type="stuff",
-    retriever=vectorstore.as_retriever(),
-    return_source_documents=True
-)
+            vectorstore = pickle.load(f)
 
-result = qa({"query": query})
+        qa = RetrievalQA.from_chain_type(
+            llm=llm,
+            chain_type="stuff",
+            retriever=vectorstore.as_retriever(),
+            return_source_documents=True
+        )
 
-            #{"answer":"","sources":[]}
-            st.header("Result")
-            st.write(result["answer"])
+        result = qa({"query": query})
 
-        #Display sources if available
-        sources=result.get("sources","")
-        if sources:
-            st.subheader("Sources:")
-            sources_list=sources.split("\n") #Split the sources by newline
-            for source in sources_list:
-                st.write(source)
+        st.header("Result")
+        st.write(result["result"])
+
+        st.subheader("Sources:")
+        for doc in result["source_documents"]:
+            st.write(doc.metadata.get("source", "Unknown"))
+
 
 
