@@ -4,7 +4,7 @@ import pickle
 import time
 import langchain
 from langchain_groq import ChatGroq
-from langchain.chains.retrieval_qa.base import RetrievalQAWithSourcesChain
+from langchain.chains import RetrievalQA
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import UnstructuredURLLoader
 from langchain_community.embeddings import HuggingFaceEmbeddings
@@ -54,8 +54,15 @@ if query:
     if os.path.exists(file_path):
         with open(file_path, "rb") as f:
             vectorstore=pickle.load(f)
-            chain=RetrievalQAWithSourcesChain.from_llm(llm=llm,retriever=vectorstore.as_retriever())
-            result=chain({"question":query},return_only_outputs=True)
+            qa = RetrievalQA.from_chain_type(
+    llm=llm,
+    chain_type="stuff",
+    retriever=vectorstore.as_retriever(),
+    return_source_documents=True
+)
+
+result = qa({"query": query})
+
             #{"answer":"","sources":[]}
             st.header("Result")
             st.write(result["answer"])
@@ -67,4 +74,5 @@ if query:
             sources_list=sources.split("\n") #Split the sources by newline
             for source in sources_list:
                 st.write(source)
+
 
