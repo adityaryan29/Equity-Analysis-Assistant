@@ -30,10 +30,19 @@ process_url_clicked=st.sidebar.button("Process URLs")
 file_path="faiss_store.pkl"
 
 main_placefolder=st.empty()
+
+# ✅ CHECK IF GROQ_API_KEY EXISTS
+groq_api_key = os.getenv("GROQ_API_KEY")
+if not groq_api_key:
+    st.error("❌ GROQ_API_KEY not found. Please configure it in your .env file or Streamlit Secrets.")
+    st.stop()
+
 llm = ChatGroq(
     model="gemma2-9b-it",
-    temperature=0.5,max_tokens=1000
+    temperature=0.5,max_tokens=1000,
+    api_key=groq_api_key
 )
+
 if process_url_clicked:
     # ✅ CHECK IF ANY URLS WERE PROVIDED
     if not urls:
@@ -90,14 +99,23 @@ if query:
             return_source_documents=True
         )
 
-        result = qa({"query": query})
+        try:
+            result = qa({"query": query})
 
-        st.header("Result")
-        st.write(result["result"])
+            st.header("Result")
+            st.write(result["result"])
 
-        st.subheader("Sources:")
-        for doc in result["source_documents"]:
-            st.write(doc.metadata.get("source", "Unknown"))
+            st.subheader("Sources:")
+            for doc in result["source_documents"]:
+                st.write(doc.metadata.get("source", "Unknown"))
+        except Exception as e:
+            st.error(f"❌ Error processing query: {str(e)}")
+            st.write("**Troubleshooting:**")
+            st.write("- Check if your Groq API key is valid")
+            st.write("- Verify you haven't exceeded your API quota")
+            st.write("- Try a simpler query or different search terms")
+    else:
+        st.info("ℹ️ Please process URLs first before asking questions.")
 
 
 
