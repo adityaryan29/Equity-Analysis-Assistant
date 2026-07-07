@@ -29,7 +29,7 @@ file_path = "faiss_store.pkl"
 main_placefolder = st.empty()
 
 llm = ChatGroq(
-    model="gemma2-9b-it",
+    model="meta-llama/llama-4-maverick-17b-128e-instruct",
     temperature=0.5,
     max_tokens=1000,
 )
