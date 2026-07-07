@@ -37,16 +37,30 @@ if process_url_clicked:
     loader=UnstructuredURLLoader(urls=urls)
     main_placefolder.text("Command Center: Data Inbound...✅✅✅")
     data=loader.load()
+    
+    # ✅ CHECK IF DATA WAS LOADED
+    if not data:
+        st.error("❌ No content found. Check if URLs are valid and accessible.")
+        st.stop()
+    
     #split data
     text_splitter=RecursiveCharacterTextSplitter(separators=['\n\n','\n','.',','],
                                                  chunk_size=500)
     docs=text_splitter.split_documents(data)
+    
+    # ✅ CHECK IF DOCUMENTS WERE CREATED
+    if not docs:
+        st.error("❌ No documents generated after splitting. URLs may not contain valid content.")
+        st.stop()
+    
     #create embeddings and saving it to FAISS index
     embeddings=HuggingFaceEmbeddings()
     vectorstore=FAISS.from_documents(docs,embeddings)
     #saving the FAISS index to pkl file
     with open(file_path, "wb") as f:
         pickle.dump(vectorstore, f)
+    
+    st.success("✅ URLs processed successfully!")
 
 
 query = main_placefolder.text_input("Question: ")
