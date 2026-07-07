@@ -6,7 +6,7 @@ import langchain
 from langchain_groq import ChatGroq
 from langchain.chains.retrieval_qa.base import RetrievalQA
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.document_loaders import UnstructuredURLLoader
+from langchain_community.document_loaders import UnstructuredURLLoader, WebBaseLoader
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 
@@ -23,7 +23,9 @@ st.sidebar.title("News Article URLs")
 urls=[]
 for i in range(3):
    url= st.sidebar.text_input(f"URL {i+1}")
-   urls.append(url)
+   if url.strip():  # ✅ ONLY ADD NON-EMPTY URLS
+       urls.append(url.strip())
+
 process_url_clicked=st.sidebar.button("Process URLs")
 file_path="faiss_store.pkl"
 
@@ -33,10 +35,21 @@ llm = ChatGroq(
     temperature=0.5,max_tokens=1000
 )
 if process_url_clicked:
-    #load data
-    loader=UnstructuredURLLoader(urls=urls)
+    # ✅ CHECK IF ANY URLS WERE PROVIDED
+    if not urls:
+        st.error("❌ Please enter at least one valid URL.")
+        st.stop()
+    
     main_placefolder.text("Command Center: Data Inbound...✅✅✅")
-    data=loader.load()
+    
+    # ✅ USE WebBaseLoader INSTEAD (more reliable)
+    try:
+        loader = WebBaseLoader(urls)
+        data = loader.load()
+    except Exception as e:
+        st.error(f"❌ Failed to load URLs: {str(e)}")
+        st.write("**Tip:** Make sure URLs are publicly accessible and return valid content.")
+        st.stop()
     
     # ✅ CHECK IF DATA WAS LOADED
     if not data:
