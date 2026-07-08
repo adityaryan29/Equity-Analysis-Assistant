@@ -1,4 +1,4 @@
-# Equity-Analysis-Assistant
+# Equity Analysis Assistant
 
 An AI-powered tool that simplifies stock research by answering natural language queries using articles and financial data. It scans and processes information from various sources to deliver clear, concise, and data-backed insights. Built to support investors, analysts, and finance enthusiasts with fast, reliable equity analysis through an easy-to-use interface.
 
