@@ -15,7 +15,7 @@ from langchain_community.vectorstores import FAISS
 
 load_dotenv()  # takes environment variable from .env.
 
-st.title("StockIntel Assistant📈")
+st.title("Equity Analysis Assistant📈")
 st.sidebar.title("News Article URLs")
 
 urls = []
